@@ -1,0 +1,20 @@
+/* Root of the object tree */
+.root {
+}
+
+.formTitle {
+	-fx-font-size: 20.0px;
+	-fx-font-weight: bold;
+	-fx-alignment: center ;
+}
+
+#resultTable #titleColumn, #idColumn{
+	-fx-alignment: center ;
+}
+
+.table-view .table-row-cell:selected {
+	-fx-font-weight: bold;
+	-fx-alignment: center ;
+	-fx-background-color: skyblue;
+	-fx-text-background-color: red;
+}
