@@ -57,6 +57,7 @@ public class BookAddController {
 	@FXML
 	Button returnButton;
 
+	// REV: nie ma takiej kontrolki w FXMLu
 	@FXML
 	Button backButton;
 	
@@ -126,13 +127,16 @@ public class BookAddController {
 		Task<Void> backgroundTask = new Task<Void>() {
 			@Override
 			protected Void call() throws Exception {
+				// REV: zawsze uzywaj loggera
 				System.out.println("Call starter");
+				// REV: powinienes wziasc dane z modelu
 				bookDataProvider.saveBook(new BookVo(null, titleBook.getText(), authorsBook.getText(), statusField.getValue().toBookStatusVo()));
 				return null;
 			}
 
 			@Override
 			protected void succeeded() {;
+				// REV: zawsze uzywaj loggera
 				System.out.println("Call starter succeed");
 				titleBook.clear();
 				authorsBook.clear();
@@ -141,7 +145,7 @@ public class BookAddController {
 		new Thread(backgroundTask).start();
 	}
 
-	
+	// REV: IOException?
 	@FXML
 	public void returnButtonAction(ActionEvent event) throws IOException {
 	    // get a handle to the stage

@@ -24,7 +24,7 @@ public class BookSearch {
 	private final ListProperty<BookVo> result = new SimpleListProperty<>(
 			FXCollections.observableList(new ArrayList<>()));
 	
-	
+	// REV: brak settera dla idBook
 	public LongProperty idBookProperty() {
 		return idBook;
 	}

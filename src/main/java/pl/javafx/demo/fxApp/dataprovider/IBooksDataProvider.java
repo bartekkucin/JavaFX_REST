@@ -17,6 +17,7 @@ public interface IBooksDataProvider {
 	List<BookVo> findBooksByParams(String author, String title) throws IOException;
 	BookVo saveBook(BookVo bookVo) throws MalformedURLException, IOException;
 	BookVo updateBook(BookVo bookVo);
+	// REV: do usuniecia ksiazki wystarczy id ksiazki
 	void deleteBook(BookVo bookVo) throws ProtocolException, MalformedURLException, IOException;
 	
 	

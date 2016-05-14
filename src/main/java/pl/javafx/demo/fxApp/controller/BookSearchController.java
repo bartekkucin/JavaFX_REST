@@ -71,6 +71,7 @@ public class BookSearchController {
 	@FXML
 	TableColumn<BookVo, String> statusColumn;
 
+	// REV: nie ma takiego elementu w FXMLu
 	@FXML
 	AnchorPane panel;
 
@@ -127,6 +128,7 @@ public class BookSearchController {
 				/*
 				 * Get the data.
 				 */
+				// REV: powinienes wziasc dane z modelu
 				Collection<BookVo> result = bookDataProvider.findBooksByParams(authorField.getText(),
 						titleField.getText());
 				return result;
@@ -153,6 +155,7 @@ public class BookSearchController {
 	@FXML
 	public void openAddBookModalWindow(ActionEvent event) throws IOException {
 		Stage primaryStage = new Stage();
+		// REV: bundle jest dostepny w atrybucie resources
 		primaryStage.setTitle(ResourceBundle.getBundle("bundle/base").getString("window.add"));
 
 		root = FXMLLoader.load(getClass().getResource("/view/bookAdd.fxml"), ResourceBundle.getBundle("bundle/base"));
@@ -170,6 +173,7 @@ public class BookSearchController {
 		LOG.debug("'Delete' button clicked");
 
 		Task<Collection<BookVo>> backgroundTask = new Task<Collection<BookVo>>() {
+			// REV: nieuzywana zmienna
 			private Boolean deleteResult;
 
 			@Override
@@ -180,6 +184,7 @@ public class BookSearchController {
 				 */
 				BookVo book2delete = resultTable.getSelectionModel().getSelectedItem();
 				bookDataProvider.deleteBook(book2delete);
+				// REV: powinienes wziasc dane z modelu
 				Collection<BookVo> result = bookDataProvider.findBooksByParams(authorField.getText(),
 						titleField.getText());
 				return result;

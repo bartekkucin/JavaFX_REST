@@ -12,12 +12,15 @@ import pl.javafx.demo.fxApp.dataprovider.data.BookVo;
 
 public class BooksMapper {
 	
+	// REV: metody statyczne sprawiaja problemy
 	
 		public static List<BookVo> mapJson2BookVoList(String jsonString) throws JsonParseException, JsonMappingException, IOException{
+			// REV: ObjectMapper powiwnien byc utworzony tylko raz
 			return new ObjectMapper().readValue(jsonString, new TypeReference<List<BookVo>>(){});
 		}
 
 		public static BookVo mapJson2BookVo(String jsonString) throws JsonParseException, JsonMappingException, IOException{
+			// REV: j.w.
 			return new ObjectMapper().readValue(jsonString, BookVo.class);
 		}
 	}
